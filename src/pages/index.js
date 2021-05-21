@@ -5,8 +5,10 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Profile from "../components/profile"
 import ImageGrid from "../components/imageGrid"
-import Stories from "../components/stories"
 import { Divider } from "../components/styles"
+import loadable from '@loadable/component'
+
+const Stories = loadable(() => import('../components/stories'))
 
 const IndexPage = ({ data }) => {
   return (
