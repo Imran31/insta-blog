@@ -1,29 +1,58 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Profile from "../components/profile"
+import ImageGrid from "../components/imageGrid"
+import Stories from "../components/stories"
+import { Divider } from "../components/styles"
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => {
+  return (
   <Layout>
+    <Profile />
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["AUTO", "WEBP", "AVIF"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    />
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    </p>
+    <Stories></Stories>
+    <br></br>
+    <Divider></Divider>
+    <br></br>
+    {/* <h4>{data.allMarkdownRemark.totalCount} Posts</h4> */}
+    
+    <ImageGrid data={data} />
   </Layout>
-)
+)}
+
+export const query = graphql`
+  query {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "DD MMMM, YYYY")
+          }
+          fields {
+            slug
+          }
+          excerpt
+        }
+      }
+    }
+    image: allFile(sort: {fields: childrenImageSharp___fluid___originalName, order: DESC}) {
+      nodes {
+        id
+        childImageSharp {
+          fluid(quality: 100) {
+            ...GatsbyImageSharpFluid
+            originalName
+          }
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage

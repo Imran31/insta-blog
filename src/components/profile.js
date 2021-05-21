@@ -1,5 +1,5 @@
 import * as React from "react"
-import { FlexContainer, Divider, FlexItem, ProfileTitle, ProfileBody } from "./styles"
+import { FlexContainer, FlexBio, ProfileTitle, ProfileBody } from "./styles"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
@@ -22,13 +22,13 @@ const Profile = () => {
   
   return (<>
     <FlexContainer wrap='wrap'>
-      <FlexItem float='left'>
+      <FlexBio float='left'>
         <Img 
           fluid={ data.image.childImageSharp.fluid }
           style={{ border: "2px solid black", borderRadius: "100%", padding: "10px", minWidth: "100px" }}
          />
-      </FlexItem> 
-      <FlexItem float='right'>
+      </FlexBio> 
+      <FlexBio float='right'>
         <ProfileTitle>imran_manzoor</ProfileTitle>
         <ProfileBody>
           <br />
@@ -37,9 +37,9 @@ const Profile = () => {
           I return smile and a wave<br />
           Please Allow me to drown<br />
         </ProfileBody>
-      </FlexItem> 
+      </FlexBio> 
     </FlexContainer>
-    <Divider></Divider>
+    
   </>)
 }
 

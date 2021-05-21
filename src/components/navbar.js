@@ -1,6 +1,6 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import { Wrapper, Title, StyledNavBar, Divider, Item, Icons, StyledLink } from "./styles"
+import { Wrapper, Title, StyledNavBar, Divider, Item, Icons, StyledLinkHeader } from "./styles"
 import { FaGithubSquare } from "@react-icons/all-files/fa/FaGithubSquare";
 import { FaLinkedin } from "@react-icons/all-files/fa/FaLinkedin";
 
@@ -12,9 +12,9 @@ const NavBar = ({ siteTitle, github, linkedin }) => (
     <Wrapper wrap='nowrap'>
       <Item>
         <Title>
-            <StyledLink to='/'>
+            <StyledLinkHeader to='/'>
               {siteTitle}
-            </StyledLink>
+            </StyledLinkHeader>
         </Title>
       </Item>
       <Item float='right'>
