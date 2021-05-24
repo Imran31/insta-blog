@@ -1,18 +1,26 @@
 import * as React from "react"
-import { HighLightContainer, HighLightTitle, FlexStroryContainer, HighLightIcon, StoryStyle, StoryWrapper  } from "./styles"
+import { HighLightContainer, HighLightTitle, FlexStroryContainer, HighLightIcon, StoryStyle, StoryWrapper } from "./styles"
 import { useState } from 'react';
 import Stories from 'react-insta-stories';
-
 
 const highlights = [
   {
     title: 'About me',
     stories: [
       {
-        url: 'https://res.cloudinary.com/imranmanzoor/image/upload/ar_1:2,c_fill,q_80,w_2624,z_0.1/v1621624386/story_2-1_lk6zbu.jpg',
+        url: 'https://res.cloudinary.com/imranmanzoor/image/upload/v1621826745/B6E2E411-89D8-4862-9975-8B5B280833DC_sqpafq.png',
+      },
+      {
+        url: 'https://res.cloudinary.com/imranmanzoor/image/upload/v1621831955/story2_vmeb63.png'
+      },
+      {
+        url: 'https://res.cloudinary.com/imranmanzoor/image/upload/v1621830669/story3_onkgyk.png'
+      },
+      {
+        url: 'https://res.cloudinary.com/imranmanzoor/image/upload/v1621830669/story4_twj8et.png'
       },
     ],
-    icon: 'https://res.cloudinary.com/imranmanzoor/image/upload/c_fill,q_80,w_2624,z_0.1/v1621624386/story_2-1_lk6zbu.jpg'
+    icon: 'https://res.cloudinary.com/imranmanzoor/image/upload/v1621831499/highlight-icon_njbydu.png'
   },
 ]
 
@@ -33,9 +41,8 @@ const HighLight = ({ stories, title, icon }) => {
           isHighlightClicked ? 
             <StoryStyle>
               <StoryWrapper>
-              <Stories stories={stories} onAllStoriesEnd={() => {setHighlightClicked(0)}} height={window.innerWidth <= 425 ? window.innerHeight : '768px'} width={window.innerWidth <= 425 ? window.innerWidth : '455px'} keyboardNavigation={true} />
+                <Stories stories={stories} onAllStoriesEnd={() => {setHighlightClicked(0)}} height={window.innerWidth <= 425 ? window.innerHeight : '768px'} width={window.innerWidth <= 425 ? window.innerWidth : '455px'} keyboardNavigation={true} />
               </StoryWrapper>
-              
             </StoryStyle> : null
         }
         
