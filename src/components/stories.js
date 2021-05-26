@@ -1,6 +1,9 @@
 import * as React from "react"
-import { HighLightContainer, HighLightTitle, FlexStroryContainer, HighLightIcon, StoryStyle, StoryWrapper } from "./styles"
+import { HighLightContainer, HighLightTitle, FlexStroryContainer, HighLightIcon, StoryStyle, StoryWrapper, EndStoryButton } from "./styles"
 import { useState } from 'react';
+import { FaRegWindowClose } from "@react-icons/all-files/fa/FaRegWindowClose";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Stories from 'react-insta-stories';
 
 const highlights = [
@@ -30,19 +33,32 @@ const highlights = [
 */
 const HighLight = ({ stories, title, icon }) => {
   const [isHighlightClicked, setHighlightClicked] = useState(0);
-  
+  let screenObj = window.screen;
+  console.log({ width: window.innerWidth <= 425 ? screenObj.width : 455, height: window.innerWidth <= 425 ? screenObj.height : 768 }, Screen)
+  const storyStyle = {
+    width: 'auto',
+    maxWidth: '100%',
+    maxHeight: screenObj.height,
+    margin: 'auto'
+  };
+
+  const notify = () => toast("Press ESC to exit!");
+
   return (
     <HighLightContainer onKeyDown={(e) => {e.key === 'Escape' && setHighlightClicked(0) }} tabIndex="0">
         <HighLightIcon backgroundImage={icon}  onClick={() => {
           setHighlightClicked(1)
+          notify()
         }} />
         <HighLightTitle>{title}</HighLightTitle>
         {
           isHighlightClicked ? 
             <StoryStyle>
               <StoryWrapper>
-                <Stories stories={stories} onAllStoriesEnd={() => {setHighlightClicked(0)}} height={window.innerWidth <= 425 ? window.innerHeight : '768px'} width={window.innerWidth <= 425 ? window.innerWidth : '455px'} keyboardNavigation={true} />
+                { window.innerWidth <= 425 ? <EndStoryButton onClick={() => {setHighlightClicked(0)}}><FaRegWindowClose /></EndStoryButton> : null }
+                <Stories stories={stories} storyStyles={storyStyle} onAllStoriesEnd={() => {setHighlightClicked(1)}} height={ window.innerWidth <= 425 ? window.innerHeight : 768 } width={ window.innerWidth <= 425 ? window.innerWidth : 455 } keyboardNavigation={true} />
               </StoryWrapper>
+              { window.innerWidth > 425 ? <ToastContainer /> : null }
             </StoryStyle> : null
         }
         

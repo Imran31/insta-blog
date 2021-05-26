@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { Link as GatsbyLink } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import { prop } from 'ramda'
 
 // const size = {
 //   mobileS: '320px',
@@ -51,7 +50,7 @@ export const FlexContainer = styled.div`
     padding: 1.45em 1.0875em;
     position: relative;
     word-break: break-word;
-`
+`;
 
 export const FlexItem = styled.div`
     order: ${props => props.order || 1};
@@ -66,25 +65,26 @@ export const FlexItem = styled.div`
   @media(max-width: 425px) {
       flex: 1 0 auto;
   }
-`
+`;
 
 export const FlexBio = styled.div`
     order: ${props => props.order || 1};
     align-self: ${props => props.align || 'auto'};
     padding: 10px;
     flex: 1 0 auto;
-`
+`;
 
 export const Item = styled.div`
     float: ${props => props.float || 'left'};
-`
+`;
 
 export const Icons = styled.a`
     font-size: 1.50rem;
     padding-left: 0.5rem;
     color: #000000;
     text-decoration: none;
-`
+`;
+
 export const StyledLinkHeader = styled(GatsbyLink)`
   text-decoration: none;
   color: black;
@@ -96,11 +96,11 @@ export const StyledLinkHeader = styled(GatsbyLink)`
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-`
+`;
 
 export const ProfilePic = styled(StaticImage)`
   margin-bottom: 1.45rem;
-`
+`;
 
 export const ProfileTitle = styled.h3`
   color: black;
@@ -108,7 +108,7 @@ export const ProfileTitle = styled.h3`
   margin: 0;
   font-size: 35px;
   font-weight: 400;
-`
+`;
 
 export const ProfileBody = styled.p`
   color: black;
@@ -160,7 +160,8 @@ export const FlexItemStrory = styled.div`
   @media(max-width: 425px) {
       flex: 1 0 auto;
   }
-`
+`;
+
 export const FlexStroryContainer = styled.div`
   display: flex;
   overflow-x: auto;
@@ -170,7 +171,7 @@ export const FlexStroryContainer = styled.div`
   }
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-`
+`;
 
 export const HighLightContainer = styled.div`
   display: flex;
@@ -190,6 +191,7 @@ export const HighLightIcon = styled.div`
   border-radius: 100%;
   margin: 10px;
   padding-bottom:10px;
+  cursor: pointer;
 `;
 
 export const HighLightTitle = styled.div`
@@ -205,8 +207,30 @@ export const StoryStyle = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  margin: auto auto;
+  -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 `;
 
 export const StoryWrapper = styled.div`
   margin: auto auto;
+  background-color: magenta;
+  -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+`;
+
+export const EndStoryButton = styled.div`
+  position: fixed;
+  z-index: 5000;
+  color: white;
+  font-size: 1.50rem;
+  right: 0.5em;
+  top: 1em;
+  cursor: pointer;
 `;
