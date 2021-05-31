@@ -234,3 +234,8 @@ export const EndStoryButton = styled.div`
   top: 1em;
   cursor: pointer;
 `;
+
+export const ProfilePronouns = styled.div`
+  font-size: 1em;
+  color: #7a7a7a;
+`;

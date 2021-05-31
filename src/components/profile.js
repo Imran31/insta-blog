@@ -1,5 +1,5 @@
 import * as React from "react"
-import { FlexContainer, FlexBio, ProfileTitle, ProfileBody } from "./styles"
+import { FlexContainer, FlexBio, ProfileTitle, ProfileBody, ProfilePronouns } from "./styles"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
@@ -30,12 +30,14 @@ const Profile = () => {
       </FlexBio> 
       <FlexBio float='right'>
         <ProfileTitle>imran_manzoor</ProfileTitle>
+        <ProfilePronouns>(he/him)</ProfilePronouns>
         <ProfileBody>
           <br />
-          he/him<br />
           A greeting not to me<br />
           I return smile and a wave<br />
           Please Allow me to drown<br />
+          <br />
+          <a href='https://drive.google.com/file/d/1QuU0piqGbsd-gNbCVwUM2GmkOfB1nJHl/view' rel="noreferrer" target='_blank'>Resume</a>
         </ProfileBody>
       </FlexBio> 
     </FlexContainer>
