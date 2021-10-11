@@ -1,6 +1,6 @@
 import * as React from "react"
 import { FlexContainer, FlexBio, ProfileTitle, ProfileBody, ProfilePronouns } from "./styles"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 /*
@@ -33,9 +33,11 @@ const Profile = () => {
         <ProfilePronouns>(he/him)</ProfilePronouns>
         <ProfileBody>
           <br />
-          A greeting not to me<br />
-          I return smile and a wave<br />
-          Please Allow me to drown<br />
+          Software Engineer <Link to='https://unacademy.com/goal/upsc-optional/NYHNH' rel="noreferrer" target='_blank'>@Unacademy</Link><br /><br />
+          I run experiments in the kitchen 🧑🏾‍🍳<br />
+          I make/break stuff with code 🛠️<br />
+          I am the <Link to='https://twitter.com/poet_of_venice' rel="noreferrer" target='_blank'>@poet_of_venice</Link><br />
+          <br />
           <br />
           <a href='https://drive.google.com/file/d/1QuU0piqGbsd-gNbCVwUM2GmkOfB1nJHl/view' rel="noreferrer" target='_blank'>Resume</a>
         </ProfileBody>
